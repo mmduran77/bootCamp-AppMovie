@@ -1,0 +1,22 @@
+.h1 {
+    font-family: "Berlin Sans FB, Tahoma, sans-serif";
+    display: block;
+    text-align: center;
+    line-height: .8;
+    color: rgb(150, 18, 18);
+}
+
+p{
+    color: orange;
+    margin-top: auto;
+}
+
+.containerForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    margin: 40rem;
+  } 
+
