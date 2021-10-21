@@ -77,7 +77,9 @@ export default function Contact() {
     return( 
         <div>
             <Container className="containerForm">
-                <h1 className="h1"> Formulario de Consulta </h1>
+                <div className="pt-4 clearfix">
+                    <h1 className="container text-center text-lg-left">Formulario de Contacto</h1>
+                </div>
                 <Row>
                     <Col></Col>
                     <Col xs={6}>
@@ -105,12 +107,14 @@ export default function Contact() {
                                     {fails.message ? <p style={{color:"orange"}}>{fails.message}</p> : null}
                                 </FloatingLabel>                      
                             </Form.Group>
-                            <Button variant="primary" type="submit" disabled={ fails.email || fails.name ||fails.message ? true : false }>
-                                Enviar
-                            </Button>
-                            <Button variant="danger" type="submit" href="/home">
-                                Cancelar
-                            </Button>
+                            <div className="d-flex justify-content-around ">
+                                <Button variant="primary" type="submit" disabled={ fails.email || fails.name ||fails.message ? true : false }>
+                                    Enviar
+                                </Button>
+                                <Button variant="danger" type="submit" href="/home">
+                                    Cancelar
+                                </Button>
+                            </div>
                         </Form>
                     </Col>
                     <Col></Col>

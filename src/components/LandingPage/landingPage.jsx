@@ -17,7 +17,7 @@ const landingPage = ({ imageSrc }) => {
        */}
       <div className="hero">
         <img src={inicio} alt="" className="hero__image" />
-        <h1 className="h1">Buscar peliculas Facilmente.<br/>
+        <h1 className="h1">El mas completo catalogo peliculas<br/>
         <center>
         <Button variant="info" href="/home">Ingresar</Button>
         </center>
@@ -27,15 +27,15 @@ const landingPage = ({ imageSrc }) => {
     
     <Slider
         imageSrc={travel_02}
-        title={"Ser un videomaniaco."}
+        title={"Nuestro Catalogo"}
         subtitle={
-          "Nuestra plataforma ofrece una amplia variedad de Peliculas!"
+          "Actualmente contamos con más de 280.000 titulos, actualizados diariamente con resoluciones de hasta 2000x3000."
         }
       />
       <Slider
         imageSrc={travel_03}
-        title={"Memories for a lifetime."}
-        subtitle={"Your dream vacation is only a few clicks away."}
+        title={"Descripcion Detallada"}
+        subtitle={"Obtenen información completa de películas, todo el contenido y las imágenes del sitio."}
         flipped={true}
       />
          

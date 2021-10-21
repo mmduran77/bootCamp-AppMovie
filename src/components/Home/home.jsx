@@ -14,7 +14,9 @@ import {
 } from 'antd';
 import 'antd/dist/antd.css';
 import Navbar from '../NavBar/navBar';
+import { Form } from 'react-bootstrap';
 import { Container } from 'react-bootstrap';
+import { Accordion, Button } from 'react-bootstrap';
 const navbarLinks = [
     { url: "/", title: "Home" },
     { url: "#", title: "Contact" },
@@ -183,6 +185,43 @@ function Home() {
                     <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
                         <SearchBox searchHandler={setQuery} />
                         <br />
+                        <Accordion>
+  <Accordion.Item eventKey="0">
+    <Accordion.Header>Filtrar</Accordion.Header>
+    <Accordion.Body>
+    <div>
+                        <Form>
+                            {['radio'].map((type) => (
+                                <div key={`inline-${type}`} className="mb-3">
+                                <Form.Check
+                                    inline
+                                    label="Ascendente"
+                                    name="group1"
+                                    type={type}
+                                    id={`inline-${type}-1`}
+                                />
+                                <Form.Check
+                                    inline
+                                    label="Descendente"
+                                    name="group1"
+                                    type={type}
+                                    id={`inline-${type}-2`}
+                                />
+                                {/* <Form.Check
+                                    inline
+                                    disabled
+                                    label="3 (disabled)"
+                                    type={type}
+                                    id={`inline-${type}-3`}
+                                /> */}
+                                </div>
+                            ))}
+                            </Form>
+                        </div>
+    </Accordion.Body>
+  </Accordion.Item>
+  
+</Accordion>
                         
                         <Row gutter={16} type="flex" justify="center">
                             { loading &&

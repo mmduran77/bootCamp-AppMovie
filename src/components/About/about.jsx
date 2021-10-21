@@ -5,18 +5,21 @@ import Col from "react-bootstrap/Col"
 import CardImg from "react-bootstrap/CardImg"; 
 import ImgDuran from "../../assets/image-1.jpg"
 import ImgMarcos from "../../assets/image-2.png"
+import Container from "react-bootstrap/esm/Container";
 
 const about = () => {
     return(
         <div>
+            <Container className="containerForm">
             <header className="d-print-none">
                 <div className="container text-center text-lg-left">
                     <div className="pt-4 clearfix">
+                        <h1>Acerca de Nosotros</h1>
                     <Row>
                         <Col>
                             <Card className="site-title mb-0" style={{padding:"1rem"}}>
                                 <Card.Title>Mauro Duran</Card.Title>
-                                <CardImg src={ImgDuran} style={{padding:"1rem"}} width="100" height="400"></CardImg>
+                                <CardImg src={ImgDuran} style={{padding:"1rem"}, {borderRadius:"50%"}, {maxWidth:"150px"}} ></CardImg>
                                 <Card.Header>
                                     <h2 className="h2 fw-light mb-4">About Me</h2>
                                     probando contenido 1
@@ -184,6 +187,7 @@ const about = () => {
                             </div>
                         </div>
             </div>
+            </Container>
         </div>     
     )
 }
