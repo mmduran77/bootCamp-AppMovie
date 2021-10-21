@@ -13,15 +13,11 @@ import {
     Typography 
 } from 'antd';
 import 'antd/dist/antd.css';
-import Navbar from '../NavBar/navBar';
+
 import { Form } from 'react-bootstrap';
 import { Container } from 'react-bootstrap';
-import { Accordion, Button } from 'react-bootstrap';
-const navbarLinks = [
-    { url: "/", title: "Home" },
-    { url: "#", title: "Contact" },
-    { url: "#", title: "About" },
-  ];
+import { Accordion } from 'react-bootstrap';
+
 
 const API_KEY = 'c9ba90e7';
 const { Content, Footer } = Layout;
@@ -142,6 +138,7 @@ const Loader = () => (
 function Home() {
 
     const [data, setData] = useState(null);
+    let [page,setPage]=useState(1);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
     const [q, setQuery] = useState('batman');
@@ -149,6 +146,25 @@ function Home() {
     const [detail, setShowDetail] = useState(false);
     const [detailRequest, setDetailRequest] = useState(false);
 
+    const ordAscendente = () => {
+        let newSortedList = [...data].sort((a, b) => (a.Title > b.Title ? 1 : a.Title < b.Title ? -1 : 0))
+          // si la lista después de ordenarla tiene el mismo primer elemento, lo repito a la inversa
+          // (claro que esto es ineficiente, lo suyo sería habilitar otro estado para guardar el tipo de ordenamiento que hemos hecho)
+        //   if (newSortedList[0] === data[0])
+        //     newSortedList = [...data].sort((b, a) => (a.Title > b.Title ? 1 : a.Title < b.Title ? -1 : 0))
+                 setData(newSortedList)
+        //         alert("Orden Ascendente")
+    }
+
+    const ordDescendente = () => {
+        let newSortedList = [...data].sort((a, b) => (a.Title < b.Title ? 1 : a.Title > b.Title ? -1 : 0))
+          // si la lista después de ordenarla tiene el mismo primer elemento, lo repito a la inversa
+          // (claro que esto es ineficiente, lo suyo sería habilitar otro estado para guardar el tipo de ordenamiento que hemos hecho)
+        //   if (newSortedList[0] === data[0])
+        //     newSortedList = [...data].sort((b, a) => (a.Title < b.Title ? 1 : a.Title > b.title ? -1 : 0))
+                setData(newSortedList)
+        // alert("Orden Descendente")
+    }
 
     useEffect(() => {
 
@@ -156,7 +172,7 @@ function Home() {
         setError(null);
         setData(null);
 
-        fetch(`http://www.omdbapi.com/?s=${q}&apikey=${API_KEY}`)
+        fetch(`http://www.omdbapi.com/?s=${q}&apikey=${API_KEY}&page=${page}`)
         .then(resp => resp)
         .then(resp => resp.json())
         .then(response => {
@@ -175,6 +191,9 @@ function Home() {
         })
 
     }, [q]);
+    const next=()=>{
+        setPage++;
+    }
 
     
     return (
@@ -186,42 +205,38 @@ function Home() {
                         <SearchBox searchHandler={setQuery} />
                         <br />
                         <Accordion>
-  <Accordion.Item eventKey="0">
-    <Accordion.Header>Filtrar</Accordion.Header>
-    <Accordion.Body>
-    <div>
-                        <Form>
-                            {['radio'].map((type) => (
-                                <div key={`inline-${type}`} className="mb-3">
-                                <Form.Check
-                                    inline
-                                    label="Ascendente"
-                                    name="group1"
-                                    type={type}
-                                    id={`inline-${type}-1`}
-                                />
-                                <Form.Check
-                                    inline
-                                    label="Descendente"
-                                    name="group1"
-                                    type={type}
-                                    id={`inline-${type}-2`}
-                                />
-                                {/* <Form.Check
-                                    inline
-                                    disabled
-                                    label="3 (disabled)"
-                                    type={type}
-                                    id={`inline-${type}-3`}
-                                /> */}
-                                </div>
-                            ))}
-                            </Form>
-                        </div>
-    </Accordion.Body>
-  </Accordion.Item>
-  
-</Accordion>
+                            <Accordion.Item eventKey="0">
+                                <Accordion.Header>Filtrar</Accordion.Header>
+                                <Accordion.Body>
+
+                                    <Form>
+                                        
+                                            <div key={`inline-radio`} className="mb-3">
+                                            <Form.Check
+                                                onChange={ordAscendente}
+                                                inline
+                                                label="Ascendente"
+                                                name="ordenar"
+                                                type="radio"
+                                                id={`inline-1`}
+                                            />
+                                            <Form.Check
+                                                onChange={ordDescendente}
+                                                inline
+                                                label="Descendente"
+                                                name="ordenar"
+                                                type="radio"
+                                                id={`inline-2`}
+                                            />
+                                           
+                                            
+                                            </div>
+                                        
+                                        </Form>
+                        
+                                </Accordion.Body>
+                            </Accordion.Item>                            
+                        </Accordion>
                         
                         <Row gutter={16} type="flex" justify="center">
                             { loading &&
@@ -259,6 +274,7 @@ function Home() {
                         }
                     </Modal>
                 </Content>
+                <button onClick={next}>siguiente</button>
                 <Footer style={{ textAlign: 'center' }}>FullPelis ©2021</Footer>
             </Layout>
         </div>

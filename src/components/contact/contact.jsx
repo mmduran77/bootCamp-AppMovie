@@ -7,9 +7,10 @@ import Col from "react-bootstrap/Col"
 import Row from "react-bootstrap/Row"
 import { useState } from "react"
 import emailjs from "emailjs-com"
-
+import { useHistory } from "react-router";
 
 export function Validacion(input){
+    
     let errors = {}
     if(!input.email){
         errors.email = "Correo Electronico es requirido"
@@ -32,11 +33,10 @@ export function Validacion(input){
 }
 
 export default function Contact() {
-    // const [username, setUsername] = useState("");
-    // const [asunto, setAsunto] = useState("");
-    // const [mensaje, SetMensaje] = useState("");
-
-    
+    const history = useHistory();
+    const redireccionamiento = () => {
+        history.push("/home")
+    }; 
     const [state, setState] = useState({
         email: '',
         name: '',
@@ -59,7 +59,7 @@ export default function Contact() {
           });
         e.target.reset()
         alert("Mensaje enviado");
-        
+        redireccionamiento();
     }
 
     function onHandleChange(e) {
