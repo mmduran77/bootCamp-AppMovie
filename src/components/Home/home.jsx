@@ -70,7 +70,7 @@ const SearchYear = ({searchHandler}) => {
     )
 }
 
-const ColCardBox = ({Title, imdbID, Poster, Type, ShowDetail, DetailRequest, ActivateModal}) => {
+const ColCardBox = ({Title, imdbID, Poster, Type, ShowDetail, DetailRequest, ActivateModal, Year}) => {
   
     
     const clickHandler = () => {
@@ -118,6 +118,7 @@ const ColCardBox = ({Title, imdbID, Poster, Type, ShowDetail, DetailRequest, Act
                         <Row style={{marginTop: '5px'}} className="gutter-row">
                             <Col>
                                 <Tag color="magenta">{Type}</Tag>
+                                <Tag color="cyan">{Year}</Tag>
                             </Col>
                         </Row>
                     </Card>

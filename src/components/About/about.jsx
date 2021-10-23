@@ -6,6 +6,7 @@ import CardImg from "react-bootstrap/CardImg";
 import ImgDuran from "../../assets/image-1.jpg"
 import ImgMarcos from "../../assets/image-2.jpg"
 import "./about.css"
+import Contact from "../contact/contact";
 
 const about = () => {
     return(
@@ -36,7 +37,7 @@ const about = () => {
                             </div>
                         <div className="col bio d-flex justify-content-between">
                             <div className="pb-2 fw-bolder"><i className="far fa-envelope pe-2 text-muted" style={{width: "24px"}}></i> Email</div>
-                            <div className="pb-2">mmduran77@gmail.com</div>
+                           <a href="/contact"> <div className="pb-2">mmduran77@gmail.com</div> </a>
                         </div>
                         
                         <div className="col bio d-flex justify-content-between">
@@ -82,7 +83,9 @@ const about = () => {
                             </div>
                         <div className="col bio d-flex justify-content-between">
                             <div className="pb-2 fw-bolder"><i className="far fa-envelope pe-2 text-muted" style={{width: "24px"}}></i> Email</div>
-                            <div className="pb-2">ferreira.marcos.1988@gmail.com</div>
+                            <a href="/contact"> 
+                                <div className="pb-2">ferreira.marcos.1988@gmail.com</div>
+                            </a>
                         </div>
                         
                         <div className="col bio d-flex justify-content-between">
