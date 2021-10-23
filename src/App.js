@@ -20,7 +20,7 @@ function App() {
       </Route>
       
       <Route exact path="/home">  
-          <NavBar/>
+        
           <Home/>
       </Route>
       <Route exact path="/contact">  
