@@ -7,10 +7,9 @@ import Col from "react-bootstrap/Col"
 import Row from "react-bootstrap/Row"
 import { useState } from "react"
 import emailjs from "emailjs-com"
-import { useHistory } from "react-router";
+
 
 export function Validacion(input){
-    
     let errors = {}
     if(!input.email){
         errors.email = "Correo Electronico es requirido"
@@ -33,10 +32,11 @@ export function Validacion(input){
 }
 
 export default function Contact() {
-    const history = useHistory();
-    const redireccionamiento = () => {
-        history.push("/home")
-    }; 
+    // const [username, setUsername] = useState("");
+    // const [asunto, setAsunto] = useState("");
+    // const [mensaje, SetMensaje] = useState("");
+
+    
     const [state, setState] = useState({
         email: '',
         name: '',
@@ -59,7 +59,7 @@ export default function Contact() {
           });
         e.target.reset()
         alert("Mensaje enviado");
-        redireccionamiento();
+        
     }
 
     function onHandleChange(e) {
@@ -76,14 +76,15 @@ export default function Contact() {
 
     return( 
         <div>
-            <Container className="containerForm">
-                <div className="pt-4 clearfix">
-                    <h1 className="container text-center text-lg-left">Formulario de Contacto</h1>
-                </div>
+            
+             <Container className="containerForm"> 
+             
                 <Row>
-                    <Col></Col>
+
+                    <Col> </Col>
+                    
                     <Col xs={6}>
-                        
+                    
                         <Form onSubmit={(e)=>onSubmitForm(e)}>
                             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                 <FloatingLabel controlId="floatingInput" label="Nombre" className="mb-3">
@@ -107,17 +108,19 @@ export default function Contact() {
                                     {fails.message ? <p style={{color:"orange"}}>{fails.message}</p> : null}
                                 </FloatingLabel>                      
                             </Form.Group>
-                            <div className="d-flex justify-content-around ">
-                                <Button variant="primary" type="submit" disabled={ fails.email || fails.name ||fails.message ? true : false }>
-                                    Enviar
-                                </Button>
-                                <Button variant="danger" type="submit" href="/home">
-                                    Cancelar
-                                </Button>
+                            <div className="d-flex justify-content-around">
+                            <Button classname="mx-2" variant="primary" type="submit" disabled={ fails.email || fails.name ||fails.message ? true : false }>
+                                Enviar
+                            </Button>
+                            <Button variant="danger" type="submit" href="/home">
+                                Cancelar
+                            </Button>
                             </div>
                         </Form>
                     </Col>
+                    
                     <Col></Col>
+                    
                 </Row>
               
             </Container>

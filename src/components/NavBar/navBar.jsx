@@ -1,22 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import { NavLink } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar"
-import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav"
-import Form from "react-bootstrap/Form"
-import FormControl from "react-bootstrap/FormControl";
-import { Button } from "react-bootstrap";
 import "./navBar.css"
+import SearchBox from "./SearchBox";
+import Image from "rc-image";
+import logo from "../../assets/logo2.png"
 
-export default function NavBar(){
+export default function NavBar({searchHandler}){
+    const [q, setQuery] = useState('batman');
         return[
-            <Container >               
+                     
                 <Navbar  collapseOnSelect expand="lg" bg="dark" variant="dark">
-                    <Container>
+                    
                         <Navbar.Brand>
-                            <NavLink className="barra" to="/" >Full Pelis</NavLink>
+                            <NavLink className="barra" to="/" ><Image src={logo} width="70px" height="70px"/></NavLink>
                         </Navbar.Brand>
-                        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                        <Navbar.Toggle aria-controls="responsive-navbar-nav" >°°°</Navbar.Toggle>
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="me-auto"> 
                                 <Nav.Link >
@@ -31,7 +31,7 @@ export default function NavBar(){
                                     <NavLink to="/contact" className="barra">Contact </NavLink>
                                 </Nav.Link>                          
                             </Nav>       
-                            <Form className="d-flex">
+                            {/* <Form className="d-flex">
                                 <FormControl
                                 type="search"
                                 placeholder="Search"
@@ -39,11 +39,14 @@ export default function NavBar(){
                                 aria-label="Search"
                                 />
                                 <Button variant="outline-success">Search</Button>
-                            </Form>                 
+                            </Form>                                              */}
+
+                            <SearchBox searchHandler={searchHandler}/>
+
                         </Navbar.Collapse>
-                    </Container>
+                    
                 </Navbar>
-            </Container>
+          
         ]
     
 }

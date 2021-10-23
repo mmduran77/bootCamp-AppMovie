@@ -1,0 +1,40 @@
+body {
+    height: 100vh;
+	background: linear-gradient(45deg, #12cca4, #0a1b17);
+	background-size: 400% 400%;
+	/* animation: gradient 25s ease infinite; */
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.imagen{
+    border-radius: 50% !important;
+    border: 5px solid transparent;
+    box-shadow: 0 0 10px black;
+    width: 200px !important;
+    height: 200px;
+  
+}
+.card-about{
+    background-color: transparent !important;
+    color: black;
+    border:1px solid transparent !important;
+    box-shadow: 0 0 10px black !important;
+    font-size: 20px;
+}
+.card-about .title{
+    font-family: cursive;
+}
+.bio{
+    
+    border-bottom:1px solid black ;
+}

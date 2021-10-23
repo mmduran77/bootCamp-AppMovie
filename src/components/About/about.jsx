@@ -4,62 +4,56 @@ import Row  from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col"
 import CardImg from "react-bootstrap/CardImg"; 
 import ImgDuran from "../../assets/image-1.jpg"
-import ImgMarcos from "../../assets/image-2.png"
-import Container from "react-bootstrap/esm/Container";
+import ImgMarcos from "../../assets/image-2.jpg"
+import "./about.css"
 
 const about = () => {
     return(
         <div>
-            <Container className="containerForm">
             <header className="d-print-none">
                 <div className="container text-center text-lg-left">
                     <div className="pt-4 clearfix">
-                        <h1>Acerca de Nosotros</h1>
                     <Row>
                         <Col>
-                            <Card className="site-title mb-0" style={{padding:"1rem"}}>
-                                <Card.Title>Mauro Duran</Card.Title>
-                                <CardImg src={ImgDuran} style={{padding:"1rem"}, {borderRadius:"50%"}, {maxWidth:"150px"}} ></CardImg>
+                            <Card className="site-title card-about d-flex flex-column align-items-center" bg="white">
+                                <Card.Title><h1 className="title">Mauro Duran</h1></Card.Title>
+                                <CardImg className="imagen" src={ImgDuran} ></CardImg>
                                 <Card.Header>
                                     <h2 className="h2 fw-light mb-4">About Me</h2>
-                                    probando contenido 1
+                                   
                                     <p>Hello! I’m Mauro Duran. I am passionate about UI/UX design and Web Design. I am a skilled <strong>front-end developer</strong> and master of graphic design tools such as Photoshop and Sketch. I am a quick learner and a team worker that gets the job done.</p>
                                     <p>I can easily capitalize on low hanging fruits and quickly maximize timely deliverables for real-time schemas.</p>
                                 </Card.Header>
                                 
                                 <Card.Body>
-                                <div className="row mt-2">
+                                <div className="row mt-2 bio">
                         <h2 className="h2 fw-light mb-4">Bio</h2>
-                        <div className="col-sm-5">
-                            <div className="pb-2 fw-bolder"><i className="far fa-calendar-alt pe-2 text-muted" style={{width: "24px"},{opacity:"0.85"}}></i> Age</div>
-                        </div>
-                        <div className="col-sm-7">
+                        <div className="d-flex flex-column">
+                        <div className="col bio d-flex justify-content-between">
+                            <div className="pb-2 fw-bolder"><i className="far fa-calendar-alt pe-2 text-muted" ></i> Age</div>
                             <div className="pb-2">43</div>
-                        </div>
-                        <div className="col-sm-5">
+                            
+                            </div>
+                        <div className="col bio d-flex justify-content-between">
                             <div className="pb-2 fw-bolder"><i className="far fa-envelope pe-2 text-muted" style={{width: "24px"}}></i> Email</div>
-                        </div>
-                        <div className="col-sm-7">
                             <div className="pb-2">mmduran77@gmail.com</div>
                         </div>
-                        <div className="col-sm-5">
+                        
+                        <div className="col bio d-flex justify-content-between">
                             <div className="pb-2 fw-bolder"><i className="fab fa-skype pe-2 text-muted" style={{width: "24px"}}></i> Skype</div>
-                        </div>
-                        <div className="col-sm-7">
                             <div className="pb-2">mmduran@skype.com</div>
                         </div>
-                        <div className="col-sm-5">
+                        
+                        <div className="col bio d-flex justify-content-between">
                             <div className="pb-2 fw-bolder"><i className="fas fa-phone pe-2 text-muted" style={{Width: "24px"}}></i> Phone</div>
-                        </div>
-                        <div className="col-sm-7">
                             <div className="pb-2">+0388-514-3808</div>
                         </div>
-                        <div className="col-sm-5">
+                        
+                        <div className="col bio d-flex justify-content-between">
                             <div className="pb-2 fw-bolder"><i className="fas fa-map-marker-alt pe-2 text-muted" style={{opacity: "0.85"} , {Width: "24px"}}></i> Address</div>
-                        </div>
-                        <div className="col-sm-7">
                             <div className="pb-2">La Quiaca, Jujuy, Argentina</div>
                         </div>
+                    </div>
                     </div>
                                 </Card.Body>
 
@@ -67,50 +61,46 @@ const about = () => {
                         </Col>
 
                         <Col>
-                        <Card className="site-title mb-0" style={{padding:"1rem"}}>
-                                <Card.Title>Marcos Ferreira</Card.Title>
-                                <CardImg src={ImgMarcos} style={{padding:"1rem"}} width="100" height="400"></CardImg>
+                        <Card className="site-title card-about d-flex flex-column align-items-center" bg="white" >
+                                <Card.Title><h1 className="title">Marcos Ferreira</h1></Card.Title>
+                                <CardImg className="imagen" src={ImgMarcos} ></CardImg>
                                 <Card.Header>
                                     <h2 className="h2 fw-light mb-4">About Me</h2>
-                                    probando contenido 2
-                                    <p>Hello! I’m Mauro Duran. I am passionate about UI/UX design and Web Design. I am a skilled <strong>front-end developer</strong> and master of graphic design tools such as Photoshop and Sketch. I am a quick learner and a team worker that gets the job done.</p>
+                                    
+                                    <p>Hello! I’m Marcos Ferreira. I am passionate about UI/UX design and Web Design. I am a skilled <strong>front-end developer</strong> and master of graphic design tools such as Photoshop and Sketch. I am a quick learner and a team worker that gets the job done.</p>
                                     <p>I can easily capitalize on low hanging fruits and quickly maximize timely deliverables for real-time schemas.</p>
                                 </Card.Header>
                                 
                                 <Card.Body>
                                     <div className="row mt-2">
                                         <h2 className="h2 fw-light mb-4">Bio</h2>
-                                        <div className="col-sm-5">
-                                            <div className="pb-2 fw-bolder"><i className="far fa-calendar-alt pe-2 text-muted" style={{width: "24px"},{opacity:"0.85"}}></i> Age</div>
-                                        </div>
-                                        <div className="col-sm-7">
-                                            <div className="pb-2">33</div>
-                                        </div>
-                                        <div className="col-sm-5">
-                                            <div className="pb-2 fw-bolder"><i className="far fa-envelope pe-2 text-muted" style={{width: "24px"}}></i> Email</div>
-                                        </div>
-                                        <div className="col-sm-7">
-                                            <div className="pb-2">marcosferreira83@gmail.com</div>
-                                        </div>
-                                        <div className="col-sm-5">
-                                            <div className="pb-2 fw-bolder"><i className="fab fa-skype pe-2 text-muted" style={{width: "24px"}}></i> Skype</div>
-                                        </div>
-                                        <div className="col-sm-7">
-                                            <div className="pb-2">marcosferreira@skype.com</div>
-                                        </div>
-                                        <div className="col-sm-5">
-                                            <div className="pb-2 fw-bolder"><i className="fas fa-phone pe-2 text-muted" style={{Width: "24px"}}></i> Phone</div>
-                                        </div>
-                                        <div className="col-sm-7">
-                                            <div className="pb-2">+011-3171-0962</div>
-                                        </div>
-                                        <div className="col-sm-5">
-                                            <div className="pb-2 fw-bolder"><i className="fas fa-map-marker-alt pe-2 text-muted" style={{opacity: "0.85"} , {Width: "24px"}}></i> Address</div>
-                                        </div>
-                                        <div className="col-sm-7">
-                                            <div className="pb-2">La Quiaca, Jujuy, Argentina</div>
-                                        </div>
-                                    </div>
+                                        <div className="d-flex flex-column">
+                        <div className="col bio d-flex justify-content-between">
+                            <div className="pb-2 fw-bolder"><i className="far fa-calendar-alt pe-2 text-muted" ></i> Age</div>
+                            <div className="pb-2">32</div>
+                            
+                            </div>
+                        <div className="col bio d-flex justify-content-between">
+                            <div className="pb-2 fw-bolder"><i className="far fa-envelope pe-2 text-muted" style={{width: "24px"}}></i> Email</div>
+                            <div className="pb-2">ferreira.marcos.1988@gmail.com</div>
+                        </div>
+                        
+                        <div className="col bio d-flex justify-content-between">
+                            <div className="pb-2 fw-bolder"><i className="fab fa-skype pe-2 text-muted" style={{width: "24px"}}></i> Skype</div>
+                            <div className="pb-2">marcosferreira@skype.com</div>
+                        </div>
+                        
+                        <div className="col bio d-flex justify-content-between">
+                            <div className="pb-2 fw-bolder"><i className="fas fa-phone pe-2 text-muted" style={{Width: "24px"}}></i> Phone</div>
+                            <div className="pb-2">1131710962</div>
+                        </div>
+                        
+                        <div className="col bio d-flex justify-content-between">
+                            <div className="pb-2 fw-bolder"><i className="fas fa-map-marker-alt pe-2 text-muted" style={{opacity: "0.85"} , {Width: "24px"}}></i> Address</div>
+                            <div className="pb-2">La Quiaca, Jujuy, Argentina</div>
+                        </div>
+                    </div>
+                    </div>
                                 </Card.Body>
 
                             </Card>
@@ -187,7 +177,6 @@ const about = () => {
                             </div>
                         </div>
             </div>
-            </Container>
         </div>     
     )
 }
