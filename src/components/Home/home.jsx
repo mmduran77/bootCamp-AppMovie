@@ -17,7 +17,7 @@ import {
     Typography 
 } from 'antd';
 import 'antd/dist/antd.css';
-import axios from 'axios';
+
 
 import NavBar from '../NavBar/navBar';
 const navbarLinks = [
