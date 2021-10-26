@@ -1,8 +1,5 @@
 
- import { Form } from 'react-bootstrap';
- import { Container } from 'react-bootstrap';
- import { Accordion } from 'react-bootstrap';
- 
+
  import React from "react";
  import "./landingPage.css"
  
@@ -16,12 +13,13 @@
  const landingPage = ({ imageSrc }) => {
  
  return (
- <div style={{backgroundColor:"white"}}>
+ <div  style={{backgroundColor:'rgb(226, 205, 205) !important'}}>
  
  {/* <Navegacion/>
   */}
  <div className="hero" >
    <img src={inicio} alt="" className="hero__image" />
+   <h1 className="h1a">FULLPELIS</h1>
    <h1 className="h1">El mas completo catalogo peliculas<br/>
    <center>
      <Button style={{margin:"1rem"}} variant="info" href="/home">Ingresar</Button>
