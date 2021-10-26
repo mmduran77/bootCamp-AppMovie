@@ -22,7 +22,7 @@ import 'antd/dist/antd.css';
 
 import NavBar from '../NavBar/navBar';
 
-const API_KEY = 'c9ba90e7';
+const API_KEY = '860cbf17';
 const { Content, Footer } = Layout;
 const { Search } = Input;
 const { Meta } = Card;
@@ -178,12 +178,11 @@ function Home() {
     const [detail, setShowDetail] = useState(false);
     const [detailRequest, setDetailRequest] = useState(false);
     const Peliculas=[];
-    const [seleccion, setSeleccion] = useState('coconut');    
-    
-    const [dia,setDia]=useState('2010')
+    const [seleccion, setSeleccion] = useState('coconut');      
+    const [anio,setAnio]=useState('2021')
       
-    function cambioDia(e) {
-      setDia(e.target.value)
+    function BuscarPelixAnio(e) {
+      setAnio(e.target.value)
       fetch(`http://www.omdbapi.com/?s=${q}&apikey=${API_KEY}&y=${e.target.value}`)
           .then(resp => resp)
           .then(resp => resp.json())
@@ -207,117 +206,10 @@ function Home() {
           })
     }
     
-    // useEffect(() => {
-
-    //     setLoading(true);
-    //     setError(null);
-    //     setData(null);       
-
-
-    //     fetch(`http://www.omdbapi.com/?s=${q}&apikey=${API_KEY}&page=1`)
-    //     .then(resp => resp)
-    //     .then(resp => resp.json())
-    //     .then(response => {
-    //         if (response.Response === 'False') {  
-    //             setError(response.Error);
-    //         }
-    //         else {
-    //             for (let index = 0; index < response.Search.length; index++) {
-    //                peliculas.push(response.Search[index])
-                    
-    //             }
-                
-
-
-    //            //setData(peliculas);
-    //         }
-
-    //         setLoading(false);
-    //     })
-    //     .catch(({message}) => {
-    //         setError(message);
-    //         setLoading(false);
-    //     })
-       
-    //     fetch(`http://www.omdbapi.com/?s=${q}&apikey=${API_KEY}&page=2`)
-    //     .then(resp => resp)
-    //     .then(resp => resp.json())
-    //     .then(response => {
-    //         if (response.Response === 'False') {
-    //             setError(response.Error);
-    //         }
-    //         else {
-    //             for (let index = 0; index < response.Search.length; index++) {
-    //                peliculas.push(response.Search[index])
-                    
-    //             }
-
-                
-              
-
-    //             setData(peliculas);
-    //         }
-
-    //         setLoading(false);
-    //     })
-    //     .catch(({message}) => {
-    //         setError(message);
-    //         setLoading(false);
-    //     })
-
-      
-
-       
-    //     console.log(peliculas)
-        
-       
-
   
 
-    // }, [q]);
-    const cargarPaginas = () => {
-        let pag = 1;   
-        const Catalogo = []    
-        while (pag<20){
-            fetch(`http://www.omdbapi.com/?s=${q}&apikey=${API_KEY}&y=${year}&page=${pag}`)
-                .then(resp => resp)
-                .then(resp => resp.json())
-                .then(response => {
-                    if (response.Response === 'False') {  
-                        setError(response.Error);
-                        
-                    }
-                    else {
-                        for (let index = 0; index < response.Search.length; index++) {
-                            Peliculas.push(response.Search[index])                    
-                        }
-                        Catalogo.concat(Peliculas);
-                    }
-
-                    setLoading(false);
-                })
-                .catch(({message}) => {
-                    setError(message);
-                    setLoading(false);
-                })
-                pag++;
-        }
-
-    }
-    const eliminarDuplicados = (peli, prop) => {
-        var nuevoArray = [];
-        var lookup  = {};
     
-        for (var i in peli) {
-            lookup[peli[i][prop]] = peli[i];
-        }
     
-        for (i in lookup) {
-            nuevoArray.push(lookup[i]);
-        }
-    
-        return nuevoArray;
-    }
 
     useEffect(() => {
 
@@ -406,10 +298,7 @@ function Home() {
                             <hr className="sidebar-divider my-0"/>
                             <form className="sidebar-brand-text mx-3">                           
                                 <div className="navbar-nav text-light">
-                                    <a>
-                                        <i className="fas fa-user-circle my-0"></i>
-                                        <span> ORDENAR EN FORMA</span>
-                                    </a>
+                                    <span> ORDENAR TITULOS </span>
                                 </div>
                                 <div key={`inline-radio`} className="navbar-nav text-light">
                                    <span className="nav-item"> <Form.Check
@@ -430,30 +319,76 @@ function Home() {
                                     />                                            
                                 </div>
                             </form>
-                            <form >
-                                
-                                <p><select value={dia} onChange={cambioDia}>
-                                <option>2010</option>
-                                <option>2011</option>
-                                <option>2012</option>
-                                <option>2013</option>
-                                <option>2014</option>
-                                <option>2015</option>
+                            <hr/>
+                            <form  className="sidebar-brand-text mx-3">                           
+                                <div className="navbar-nav text-light">
+                                    <span> BUSCAR POR AÑO </span>
+                                </div>                                
+                                <p><select className="form-control" value={anio} onChange={BuscarPelixAnio}>
+                                <option>2021</option>
+                                <option>2020</option>
+                                <option>2019</option>
+                                <option>2018</option>
+                                <option>2017</option>
                                 <option>2016</option>
+                                <option>2015</option>
+                                <option>2014</option>
+                                <option>2013</option>
+                                <option>2012</option>
+                                <option>2011</option>
+                                <option>2010</option>
+                                <option>2009</option>
+                                <option>2008</option>
+                                <option>2007</option>
+                                <option>2006</option>
+                                <option>2005</option>
+                                <option>2004</option>
+                                <option>2003</option>
+                                <option>2002</option>
+                                <option>2001</option>
+                                <option>2000</option>
+                                <option>1999</option>
+                                <option>1998</option>
+                                <option>1997</option>
+                                <option>1996</option>
+                                <option>1995</option>
+                                <option>1994</option>
+                                <option>1993</option>
+                                <option>1992</option>
+                                <option>1991</option>
+                                <option>1990</option>
+                                <option>1989</option>
+                                <option>1988</option>
+                                <option>1987</option>
+                                <option>1986</option>
+                                <option>1985</option>
+                                <option>1984</option>
+                                <option>1983</option>
+                                <option>1982</option>
+                                <option>1981</option>
+                                <option>1980</option>
+                                <option>1979</option>
+                                <option>1978</option>
+                                <option>1977</option>
+                                <option>1976</option>
+                                <option>1975</option>
+                                <option>1974</option>
+                                <option>1973</option>
+                                <option>1972</option>
+                                <option>1971</option>
+                                <option>1970</option>
+                                <option>1969</option>
+                                <option>1968</option>
+                                <option>1967</option>
+                                <option>1966</option>
+                                <option>1965</option>
+                                <option>1964</option>
+                                <option>1963</option>
+                                <option>1962</option>
+                                <option>1961</option>
+                                <option>1960</option>
                                 </select></p>
-                                <p>Día seleccionado:{dia}</p>
-    
-                            </form>
-                            <ul className="navbar-nav text-light" id="accordionSidebar">
-                                <li className="nav-item"><a className="nav-link" href="/about"><i className="fas fa-user"></i><span>About</span></a></li>
-
-                                <li className="nav-item"><a className="nav-link" href="register.html"><i className="fas fa-user-circle"></i><span>Register</span></a></li>
-
-                                <li className="nav-item"><a className="nav-link active" href="/notfound"><i className="fas fa-exclamation-circle"></i><span>Page Not Found</span></a></li>
-
-                                <li className="nav-item"><a className="nav-link" href="/contact"><i className="fas fa-window-maximize"></i><span>Contact</span></a></li>
-                            </ul>
-                            <div className="text-center d-none d-md-inline"><button className="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
+                            </form>                            
                         </div>
                     </nav>
                     <div className="d-flex flex-column" id="content-wrapper">

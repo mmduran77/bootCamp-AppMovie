@@ -10,8 +10,15 @@ import Contact from "../contact/contact";
 import "../../assets/css/styles.min.css"
 import "../../assets/bootstrap/css/bootstrap.min.css"
 import "../../assets/css/Contact-Form-Clean.css"
+import Footer1 from "../Footer/footer1";
+import { useHistory } from "react-router";
 
-const about = () => {
+const About = () => {
+    const History = useHistory();
+    
+    const redireccionamiento = () => {
+        History.push("/contact")
+    }
     return(
         <div className="container contact-clean">
             <div className="container-fluid">
@@ -22,7 +29,7 @@ const about = () => {
                             <div className="card-body text-center shadow">
                                 <img className="rounded-circle mb-3 mt-4" src={ImgDuran} alt="" width="160" height="160"/>
                                 <div className="mb-3">
-                                    <button className="btn btn-primary btn-sm" type="button">Miguel Duran</button>
+                                    <button onClick={redireccionamiento} className="btn btn-primary btn-sm" type="button">Miguel Duran</button>
                                 </div>
                             </div>
                         </div>
@@ -44,43 +51,43 @@ const about = () => {
                                 <h6 className="text-primary fw-bold m-0">Habilidades Profesionales&nbsp;</h6>
                             </div>
                             <div className="card-body">
-                                <h4 className="small fw-bold">Server migration
-                                    <span className="float-end">20%</span>
-                                </h4>
-                                <div className="progress progress-sm mb-3">
-                                    <div className="progress-bar bg-danger" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style={{width: "20%"}}><span className="visually-hidden">20%</span>
+                            <h4 className="small fw-bold">HTML
+                                        <span className="float-end">Avanzado</span>
+                                    </h4>
+                                    <div className="progress progress-sm mb-3">
+                                        <div className="progress-bar bg-danger" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style={{width: "80%"}}><span className="visually-hidden">80%</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <h4 className="small fw-bold">Sales tracking
-                                    <span className="float-end">40%</span>
-                                </h4>
-                                <div className="progress progress-sm mb-3">
-                                    <div className="progress-bar bg-warning" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style={{width: "40%"}}><span className="visually-hidden">40%</span></div>
-                                </div>
-                                <h4 className="small fw-bold">Customer Database
-                                    <span className="float-end">60%</span>
-                                </h4>
-                                <div className="progress progress-sm mb-3">
-                                    <div className="progress-bar bg-primary" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style={{width: "60%"}}>
-                                        <span className="visually-hidden">60%</span>
+                                    <h4 className="small fw-bold">CSS
+                                        <span className="float-end">Intermdio</span>
+                                    </h4>
+                                    <div className="progress progress-sm mb-3">
+                                        <div className="progress-bar bg-warning" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style={{width: "60%"}}><span className="visually-hidden">60%</span></div>
                                     </div>
-                                </div>
-                                <h4 className="small fw-bold">Payout Details
-                                    <span className="float-end">80%</span>
-                                </h4>
-                                <div className="progress progress-sm mb-3">
-                                    <div className="progress-bar bg-info" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style={{width: "80%"}}>
-                                        <span className="visually-hidden">80%</span>
+                                    <h4 className="small fw-bold">Javascript
+                                        <span className="float-end">Basico</span>
+                                    </h4>
+                                    <div className="progress progress-sm mb-3">
+                                        <div className="progress-bar bg-primary" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style={{width: "50%"}}>
+                                            <span className="visually-hidden">50%</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <h4 className="small fw-bold">Account setup
-                                    <span className="float-end">Complete!</span>
-                                </h4>
-                                <div className="progress progress-sm mb-3">
-                                    <div className="progress-bar bg-success" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style={{width: "100%"}}>
-                                        <span className="visually-hidden">100%</span>
+                                    <h4 className="small fw-bold">CorelDraw
+                                        <span className="float-end">Avanzado</span>
+                                    </h4>
+                                    <div className="progress progress-sm mb-3">
+                                        <div className="progress-bar bg-info" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style={{width: "70%"}}>
+                                            <span className="visually-hidden">70%</span>
+                                        </div>
                                     </div>
-                                </div>
+                                    <h4 className="small fw-bold">React JS
+                                        <span className="float-end">Basico</span>
+                                    </h4>
+                                    <div className="progress progress-sm mb-3">
+                                        <div className="progress-bar bg-success" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style={{width: "50%"}}>
+                                            <span className="visually-hidden">50%</span>
+                                        </div>
+                                    </div>
                             </div>
                         </div>
                     </div>                           
@@ -93,7 +100,7 @@ const about = () => {
                                 <div className="card-body text-center shadow">
                                     <img className="rounded-circle mb-3 mt-4" src={ImgMarcos} alt="" width="160" height="160"/>
                                     <div className="mb-3">
-                                        <button className="btn btn-primary btn-sm" type="button">Marcos Ferreira</button>
+                                        <button onClick={redireccionamiento} className="btn btn-primary btn-sm" type="button">Marcos Ferreira</button>
                                     </div>
                                 </div>
                             </div>
@@ -116,40 +123,40 @@ const about = () => {
                                 </div>
                                 <div className="card-body">
                                     <h4 className="small fw-bold">HTML
-                                        <span className="float-end">20%</span>
+                                        <span className="float-end">Avanzado</span>
                                     </h4>
                                     <div className="progress progress-sm mb-3">
-                                        <div className="progress-bar bg-danger" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style={{width: "20%"}}><span className="visually-hidden">20%</span>
+                                        <div className="progress-bar bg-danger" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style={{width: "80%"}}><span className="visually-hidden">80%</span>
                                         </div>
                                     </div>
                                     <h4 className="small fw-bold">CSS
-                                        <span className="float-end">40%</span>
+                                        <span className="float-end">Basico</span>
                                     </h4>
                                     <div className="progress progress-sm mb-3">
                                         <div className="progress-bar bg-warning" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style={{width: "40%"}}><span className="visually-hidden">40%</span></div>
                                     </div>
                                     <h4 className="small fw-bold">Javascript
-                                        <span className="float-end">60%</span>
+                                        <span className="float-end">Intermedio</span>
                                     </h4>
                                     <div className="progress progress-sm mb-3">
-                                        <div className="progress-bar bg-primary" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style={{width: "60%"}}>
-                                            <span className="visually-hidden">60%</span>
+                                        <div className="progress-bar bg-primary" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style={{width: "70%"}}>
+                                            <span className="visually-hidden">70%</span>
                                         </div>
                                     </div>
                                     <h4 className="small fw-bold">CorelDraw
-                                        <span className="float-end">80%</span>
-                                    </h4>
-                                    <div className="progress progress-sm mb-3">
-                                        <div className="progress-bar bg-info" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style={{width: "80%"}}>
-                                            <span className="visually-hidden">80%</span>
-                                        </div>
-                                    </div>
-                                    <h4 className="small fw-bold">React JS
                                         <span className="float-end">Basico</span>
                                     </h4>
                                     <div className="progress progress-sm mb-3">
-                                        <div className="progress-bar bg-success" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style={{width: "80%"}}>
-                                            <span className="visually-hidden">80%</span>
+                                        <div className="progress-bar bg-info" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style={{width: "20%"}}>
+                                            <span className="visually-hidden">20%</span>
+                                        </div>
+                                    </div>
+                                    <h4 className="small fw-bold">React JS
+                                        <span className="float-end">Intermedio</span>
+                                    </h4>
+                                    <div className="progress progress-sm mb-3">
+                                        <div className="progress-bar bg-success" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style={{width: "60%"}}>
+                                            <span className="visually-hidden">60%</span>
                                         </div>
                                     </div>
                                 </div>
@@ -157,8 +164,9 @@ const about = () => {
                         </div>
                     </div>
                 </div>
-            </div>  
+            </div> 
+            <Footer1/>
         </div>
     )
 }
-export default about;
+export default About;
