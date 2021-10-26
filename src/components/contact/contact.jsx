@@ -7,6 +7,9 @@ import Col from "react-bootstrap/Col"
 import Row from "react-bootstrap/Row"
 import { useState } from "react"
 import emailjs from "emailjs-com"
+import "../../assets/css/styles.min.css"
+import "../../assets/bootstrap/css/bootstrap.min.css"
+import "../../assets/css/Contact-Form-Clean.css"
 
 
 export function Validacion(input){
@@ -32,10 +35,6 @@ export function Validacion(input){
 }
 
 export default function Contact() {
-    // const [username, setUsername] = useState("");
-    // const [asunto, setAsunto] = useState("");
-    // const [mensaje, SetMensaje] = useState("");
-
     
     const [state, setState] = useState({
         email: '',
@@ -77,53 +76,52 @@ export default function Contact() {
     return( 
         <div>
             
-             <Container className="containerForm"> 
-                <br/>
-                <Row>
+                {/* <nav className="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+                    <div className="container-fluid d-flex flex-column p-0">
+                        <a className="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="/">
+                        <div className="sidebar-brand-icon rotate-n-15"><i className="fas fa-laugh-wink"></i></div>
+                        <div className="sidebar-brand-text mx-3"><span>Fullpelis</span></div>
+                        </a>
+                        <hr className="sidebar-divider my-0"/>
+                        <ul className="navbar-nav text-light" id="accordionSidebar">
+                            <li className="nav-item"><a className="nav-link" href="/about"><i className="fas fa-user"></i><span>About</span></a></li>
 
-                    <Col> </Col>
-                    
-                    <Col xs={6}>
-                    
-                        <Form onSubmit={(e)=>onSubmitForm(e)}>
-                            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                <FloatingLabel controlId="floatingInput" label="Nombre" className="mb-3">
-                                    <Form.Control type="text" value={state.asunto} name="name"
-                                    placeholder="Nombre" onChange={(e) => onHandleChange(e)}/>
-                                    {fails.name ? <p style={{color:"orange"}}>{fails.name}</p> : null}
-                                </FloatingLabel>                    
-                            </Form.Group>
+                            <li className="nav-item"><a className="nav-link" href="register.html"><i className="fas fa-user-circle"></i><span>Register</span></a></li>
 
-                            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                <FloatingLabel controlId="floating" label="Correo Electronico" className="mb-3">
-                                    <Form.Control type="email" name="email" value={state.email} onChange={(e) => onHandleChange(e)}  />
-                                    {fails.email ? <p style={{color:"orange"}}>{fails.email}</p> : null}
-                                </FloatingLabel>                    
-                            </Form.Group>                            
+                            <li className="nav-item"><a className="nav-link active" href="/notfound"><i className="fas fa-exclamation-circle"></i><span>Page Not Found</span></a></li>
+
+                            <li className="nav-item"><a className="nav-link" href="/contact"><i className="fas fa-window-maximize"></i><span>Contact</span></a></li>
+                        </ul>
+                        <div className="text-center d-none d-md-inline"><button className="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
+                    </div>
+                </nav> */}
+            <section className="contact-clean">
+                    <form onSubmit={(e)=>onSubmitForm(e)}>
+                        <h2 className="text-center">Contáctanos</h2>
+                        <div className="mb-3">
+                            <input className="form-control" type="text" value={state.asunto} name="name" placeholder="Nombre" onChange={(e) => onHandleChange(e)}/>
+                            <small className="form-text text-danger">{fails.name ? <p>{fails.name}</p> : null}</small>
+                        </div>
+                        <div className="mb-3">
+                            <input className="form-control is-invalid" type="email" name="email" value={state.email} onChange={(e) => onHandleChange(e)} placeholder="Correo Electronico"/>
+                            <small className="form-text text-danger">
+                                {fails.email ? <p> {fails.email} </p> : null}
+                            </small>
+                        </div>
+                        <div className="mb-3">
+                            <textarea className="form-control" name="message" onChange={(e) => onHandleChange(e)} placeholder="Mensaje" rows="14"></textarea>
+                            <small className="form-text text-danger">
+                                {fails.message ? <p> {fails.message} </p> : null}
+                            </small>
+                           
+                        </div>
+                        <div className="d-xl-flex d-flex justify-content-around">
+                            <button className="btn btn-primary" type="submit" disabled={ fails.email || fails.name ||fails.message ? true : false }>enviar</button>
+                            <button className="btn btn-primary" type="submit">cancelar</button>
                             
-                            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                                <FloatingLabel controlId="floatingInput" label="Mensaje" className="mb-3">
-                                    <Form.Control as="textarea" rows={6} value={state.mensaje} name="message"
-                                    placeholder="Mensaje" onChange={(e) => onHandleChange(e)}/>
-                                    {fails.message ? <p style={{color:"orange"}}>{fails.message}</p> : null}
-                                </FloatingLabel>                      
-                            </Form.Group>
-                            <div className="d-flex justify-content-around">
-                            <Button classname="mx-2" variant="primary" type="submit" disabled={ fails.email || fails.name ||fails.message ? true : false }>
-                                Enviar
-                            </Button>
-                            <Button variant="danger" type="submit" href="/home">
-                                Cancelar
-                            </Button>
-                            </div>
-                        </Form>
-                    </Col>
-                    
-                    <Col></Col>
-                    
-                </Row>
-              
-            </Container>
+                        </div>
+                    </form>
+                </section>            
         </div>
     )
 }
