@@ -60,8 +60,8 @@ export default function NavBar({searchHandler}){
                 
                 <Navbar  className="navbar navbar-expand-lg navbar-light bg-light" collapseOnSelect expand="lg" >
                     
-                        <Navbar.Brand>
-                            <NavLink className="barra" to="/" ><Image src={logo} width="70px" height="70px"/></NavLink>
+                    <Navbar.Brand>
+                            <NavLink className="barra" to="/" ><Image src={logo} width="70px" height="70px"/><h6 className="text-primary p-1"> FullPelis</h6></NavLink>
                         </Navbar.Brand>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" >°°°</Navbar.Toggle>
                         <Navbar.Collapse id="responsive-navbar-nav">

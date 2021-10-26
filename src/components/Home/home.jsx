@@ -1,7 +1,7 @@
 import React, { useEffect, useState, setState } from 'react';
 import SearchBox from '../NavBar/SearchBox';
 import { Form } from 'react-bootstrap';
-import { Container } from 'react-bootstrap';
+import { Container,Button } from 'react-bootstrap';
 import { Accordion } from 'react-bootstrap';
 import logo from "../../assets/logo2.png";
 import Footer1 from '../Footer/footer1';
@@ -31,40 +31,7 @@ const TextTitle = Typography.Title;
 
 
 
-// const SearchBox = ({searchHandler}) => {
-//     return (
-//         <Container>
-//             <Row>
-//                 <Col span={12} offset={6}>
-//                     <Search
-//                         placeholder="Ingrese Pelicula a buscar"
-//                         enterButton="Buscar"
-//                         size="large"
-//                         onSearch={value => searchHandler(value)}
-//                     />
-//                 </Col>
-//             </Row>
-//         </Container>
-        
-//     )
-// }
-const SearchYear = ({searchHandler}) => {
-    return (
-        <Container>
-            <Row>
-                <Col span={12} offset={6}>
-                    <Search
-                        placeholder="Ingrese Pelicula a buscar"
-                        enterButton="Buscar"
-                        size="large"
-                        onSearch={value => searchHandler(value)}
-                    />
-                </Col>
-            </Row>
-        </Container>
-        
-    )
-}
+
 
 const ColCardBox = ({Title, imdbID, Poster, Type, ShowDetail, DetailRequest, ActivateModal, Year}) => {
   
@@ -177,95 +144,144 @@ function Home() {
     const [activateModal, setActivateModal] = useState(false);
     const [detail, setShowDetail] = useState(false);
     const [detailRequest, setDetailRequest] = useState(false);
-    const Peliculas=[];
+    const peliculas=[];
     const [seleccion, setSeleccion] = useState('coconut');      
-    const [anio,setAnio]=useState('2021')
+    const [anio,setAnio]=useState('')
+    const [data1, setData1] = useState(null);
+    const [error1, setError1] = useState(null);
+    const [loading1, setLoading1] = useState(false);
       
-    function BuscarPelixAnio(e) {
-      setAnio(e.target.value)
-      fetch(`http://www.omdbapi.com/?s=${q}&apikey=${API_KEY}&y=${e.target.value}`)
-          .then(resp => resp)
-          .then(resp => resp.json())
-          .then(response => {
-              if (response.Response === 'False') {  
-                  setError(response.Error);
-              }
-              else {
-                //   for (let index = 0; index < response.Search.length; index++) {
-                //      peliculas.push(response.Search[index])
+    // function BuscarPelixAnio(e) {
+    //   setAnio(e.target.value)
+    //   fetch(`http://www.omdbapi.com/?s=${q}&apikey=${API_KEY}&y=${e.target.value}`)
+    //       .then(resp => resp)
+    //       .then(resp => resp.json())
+    //       .then(response => {
+    //           if (response.Response === 'False') {  
+    //               setError(response.Error);
+    //           }
+    //           else {
+    //             //   for (let index = 0; index < response.Search.length; index++) {
+    //             //      peliculas.push(response.Search[index])
                       
-                //   }
-                setData(response.Search);
-              }
+    //             //   }
+    //             setData(response.Search);
+    //           }
   
-              setLoading(false);
-          })
-          .catch(({message}) => {
-              setError(message);
-              setLoading(false);
-          })
+    //           setLoading(false);
+    //       })
+    //       .catch(({message}) => {
+    //           setError(message);
+    //           setLoading(false);
+    //       })
+    // }
+    
+  
+
+    
+    
+
+    
+    const peliculas1=[]
+    
+    
+    useEffect(() => {
+        setPage(1)
+    }, [q]);
+    
+    useEffect(() => {
+    setLoading(true);
+    setError(null);
+    setData(null);   
+    
+    
+    
+    fetch(`http://www.omdbapi.com/?s=${q}&apikey=${API_KEY}&y=${anio}&page=${page}`)
+    .then(resp => resp)
+    .then(resp => resp.json())
+    .then(response => {
+    
+    if (response.Response === 'False') {  
+        if (page<=0) {
+            setPage(1)
+            
+        }
+    setError(response.Error);
+    }
+    else {
+    
+    for (let index = 0; index < response.Search.length; index++) {
+    peliculas.push(response.Search[index])
+    
     }
     
-  
-
+    setData(peliculas);
     
     
-
+    }
+    
+    setLoading(false);
+    })
+    .catch(({message}) => {
+    setError(message);
+    setLoading(false);
+    })
+    
+    
+    }, [q,page,anio]);
     useEffect(() => {
-
-        setLoading(true);
-        setError(null);
-        setData(null);       
-
-        // const Peliculas2 = cargarPaginas();
-        // const Peliculas3 = eliminarDuplicados(Peliculas2, "_imdbID");
-        fetch(`http://www.omdbapi.com/?s=${q}&apikey=${API_KEY}&y=${year}&page=1`)
+        setLoading1(true);
+        setError1(null);
+        setData1(null);   
+        
+        
+           
+        
+        fetch(`http://www.omdbapi.com/?s=${q}&apikey=${API_KEY}&y=${anio}&page=${page + 1}`)
         .then(resp => resp)
         .then(resp => resp.json())
         .then(response => {
-            if (response.Response === 'False') {  
-                setError(response.Error);
-            }
-            else {
-                for (let index = 0; index < response.Search.length; index++) {
-                   Peliculas.push(response.Search[index])                    
-                }
-               //setData(peliculas);
-            }
-
-            setLoading(false);
+        if (response.Response === 'False') {
+        //setError(response.Error);
+        }
+        else {
+        for (let index = 0; index < response.Search.length; index++) {
+        peliculas1.push(response.Search[index])
+        
+        
+        }
+             
+        setData1(peliculas1);
+        
+        
+        }
+        
+        setLoading1(false);
         })
         .catch(({message}) => {
-            setError(message);
-            setLoading(false);
+        setError1(message);
+        setLoading1(false);
         })
-       
-        fetch(`http://www.omdbapi.com/?s=${q}&apikey=${API_KEY}&y=${year}&page=2`)
-        .then(resp => resp)
-        .then(resp => resp.json())
-        .then(response => {
-            if (response.Response === 'False') {
-                setError(response.Error);
-            }
-            else {
-                for (let index = 0; index < response.Search.length; index++) {
-                   Peliculas.push(response.Search[index])
-                    
-                }   
+             
+        console.log(peliculas)  
+        
+        }, [q,page,anio]);
 
-                setData(Peliculas);
-            }
 
-            setLoading(false);
-        })
-        .catch(({message}) => {
-            setError(message);
-            setLoading(false);
-        })
-      
-        console.log(Peliculas)
+    const siguiente=()=>{    
+        setPage(page + 2);
+        console.log(page)
+    }
 
-    }, [q,year]);
+
+    const anterior=()=>{    
+        setPage(page<0?page :page- 2);       
+        }
+
+
+    const cambiaranio=(e)=>{
+        setAnio(e.target.value)
+    }
 
 
     const ordAscendente = () => {
@@ -284,7 +300,9 @@ function Home() {
     return (
 <>
                 <NavBar searchHandler={setQuery} />
+
                 <div id="wrapper">
+
                     <nav className="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
                         <div className="container-fluid d-flex flex-column p-0">
                             <a className="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="/">
@@ -301,7 +319,8 @@ function Home() {
                                     <span> ORDENAR TITULOS </span>
                                 </div>
                                 <div key={`inline-radio`} className="navbar-nav text-light">
-                                   <span className="nav-item"> <Form.Check
+                                   <span className="nav-item"> 
+                                   <Form.Check
                                         onChange={ordAscendente}
                                         inline
                                         label="Ascendente"
@@ -324,7 +343,7 @@ function Home() {
                                 <div className="navbar-nav text-light">
                                     <span> BUSCAR POR AÑO </span>
                                 </div>                                
-                                <p><select className="form-control" value={anio} onChange={BuscarPelixAnio}>
+                                <p><select className="form-control" value={anio} onChange={cambiaranio}>
                                 <option>2021</option>
                                 <option>2020</option>
                                 <option>2019</option>
@@ -392,12 +411,26 @@ function Home() {
                         </div>
                     </nav>
                     <div className="d-flex flex-column" id="content-wrapper">
-                        <div id="content" >                            
+                        <div id="content" >  
+                                                  
                             <div className="container-fluid">
                                 <div >               
                                     <Layout className="layout" >
+                                        
                                         {/* //<Navbar navbarLinks={navbarLinks} /> */}
                                         <Content style={{ padding: '50px 50px' }}>
+                                                <div className="container justify-content-center d-xl-flex d-flex">
+                    
+                                                    <Button style={{marginRight:'5px'}} variant="secondary"  size="lg" onClick={anterior} >anterior</Button>
+                                                
+                                                    
+                                                    
+                                                    <Button size="lg" variant="primary" onClick={siguiente} >siguiente</Button>
+                                                    
+                                                    
+                                                    
+                                                    </div>  
+
                                             <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
                                             {/* <SearchBox searchHandler={setQuery} />  */}
                                             
@@ -423,6 +456,23 @@ function Home() {
                                                             page={setPage}
                                                         />
                                                     ))}
+                                                     { data1 !== null && data1.length > 0 && data1.map((result, index) => (
+         
+
+                                                            <ColCardBox 
+                                                                style={{borderRadius:'50px'}}
+                                                                ShowDetail={setShowDetail} 
+                                                                DetailRequest={setDetailRequest}
+                                                                ActivateModal={setActivateModal}
+                                                                key={index} 
+                                                                {...result} 
+                                                                page={setPage}
+                                                                
+                                                            />
+                                                            
+                                                            
+
+                                                        ))}
                                                 </Row>
                                             </div>
                                             <Modal

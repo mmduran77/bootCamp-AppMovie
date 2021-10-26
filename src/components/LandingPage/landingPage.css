@@ -1,3 +1,6 @@
+body{
+  background-color: rgba(109, 126, 148, 0.7) !important;
+}
 .hero {
     position: relative;
     width: 100%;
@@ -14,8 +17,18 @@
   
   .h1 {
     position: absolute;
-    bottom: 15%;
+    bottom: 10%;
     left: 2%;
+    color: white;
+    font-size: 4rem;
+    padding: 1px;
+    text-align: start;
+    display: block;
+  }
+  .h1a {
+    position: absolute;
+    bottom: 25%;
+    left: 12%;
     color: white;
     font-size: 4rem;
     padding: 1px;
