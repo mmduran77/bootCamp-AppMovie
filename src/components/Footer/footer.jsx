@@ -12,42 +12,42 @@ export default function footer(){
                 
                 <section className="mb-4">                
                     <a  className="btn btn-link btn-floating btn-lg text-dark m-1"
-                        href="#!"
+                        href="https://es-la.facebook.com/"
                         role="button"
                         data-mdb-ripple-color="red">
                         <i className="fab fa-facebook-f"></i>
                     </a>
                     
                     <a  className="btn btn-link btn-floating btn-lg text-dark m-1"
-                        href="#!"
+                        href="https://twitter.com/?lang=es"
                         role="button"
                         data-mdb-ripple-color="white">
                         <i className="fab fa-twitter"></i>
                     </a>
 
                     <a  className="btn btn-link btn-floating btn-lg text-dark m-1"
-                        href="#!"
+                        href="https://www.google.com/"
                         role="button"
                         data-mdb-ripple-color="dark">
                         <i className="fab fa-google"></i>
                     </a>
                     
                     <a  className="btn btn-link btn-floating btn-lg text-dark m-1"
-                        href="#!"
+                        href="https://www.instagram.com/?hl=es"
                         role="button"
                         data-mdb-ripple-color="">
                         <i className="fab fa-instagram"></i>
                     </a>
                     
                     <a  className="btn btn-link btn-floating btn-lg text-dark m-1"
-                        href="#!"
+                        href="https://ar.linkedin.com/"
                         role="button"
                         data-mdb-ripple-color="dark"> 
                         <i className="fab fa-linkedin"></i>
                     </a>
                     
                     <a  className="btn btn-link btn-floating btn-lg text-dark m-1"
-                        href="#!"
+                        href="https://github.com/mmduran77/bootCamp-AppMovie/"
                         role="button"
                         data-mdb-ripple-color="dark">
                         <i className="fab fa-github"></i>

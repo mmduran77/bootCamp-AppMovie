@@ -5,6 +5,7 @@ import {BrowserRouter as Router,Switch,Route} from 'react-router-dom'
 import Contact from "./components/contact/contact";
 import About from "./components/About/about";
 import NavBar from "./components/NavBar/navBar";
+import NotFound from "./components/NotFound/NotFound";
 
 function App() {
  
@@ -15,25 +16,25 @@ function App() {
     <Router>
       
       <Switch>
-      <Route exact path="/">  
-                  <Landindpage/>
-      </Route>
-      
-      <Route exact path="/home">  
+        <Route exact path="/">  
+                    <Landindpage/>
+        </Route>
         
-          <Home/>
-      </Route>
-      <Route exact path="/contact">  
-          <NavBar/> 
-          <Contact/>
-      </Route>
-      <Route exact path="/about">  
-          <NavBar/>
-          <About/>
-      </Route>
-      <Route>
-          <h1> ERROR 404 NOT FOUND </h1>
-      </Route>
+        <Route exact path="/home">  
+          
+            <Home/>
+        </Route>
+        <Route exact path="/contact">  
+            <NavBar/> 
+            <Contact/>
+        </Route>
+        <Route exact path="/about">  
+            <NavBar/>
+            <About/>
+        </Route>
+        <Route default >
+            <NotFound/>
+        </Route>
       </Switch>
     </Router>
     </>
