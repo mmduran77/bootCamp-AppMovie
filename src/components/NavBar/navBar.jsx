@@ -16,7 +16,7 @@ export default function NavBar({searchHandler}){
         return[
             
                 
-                <Navbar  className="navbar navbar-expand-lg navbar-light bg-light" collapseOnSelect expand="lg" >
+                <Navbar  className="navbar navbar-expand-lg navbar-light bg-light m-0" collapseOnSelect expand="lg" >
                     
                     <Navbar.Brand>
                             <NavLink className="barra" to="/" ><Image src={logo} width="70px" height="70px"/><h6 className="text-primary p-1"> FullPelis</h6></NavLink>
