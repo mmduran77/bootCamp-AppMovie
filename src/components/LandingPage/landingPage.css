@@ -18,21 +18,21 @@ body{
   .h1 {
     position: absolute;
     bottom: 10%;
-    left: 2%;
+    left: 5%;
     color: white;
     font-size: 4rem;
     padding: 1px;
-    text-align: start;
+    text-align: center;
     display: block;
   }
-  .h1a {
-    position: absolute;
-    bottom: 25%;
-    left: 12%;
+  .h2 {
+    
+    bottom: 35%;
+    left: 1%;
     color: white;
     font-size: 4rem;
     padding: 1px;
-    text-align: start;
+    text-align: center;
     display: block;
   }
 

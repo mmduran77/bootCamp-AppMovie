@@ -21,6 +21,7 @@ import 'antd/dist/antd.css';
 
 
 import NavBar from '../NavBar/navBar';
+import { findAllByTestId } from '@testing-library/dom';
 
 const API_KEY = '860cbf17';
 const { Content, Footer } = Layout;
@@ -150,37 +151,9 @@ function Home() {
     const [data1, setData1] = useState(null);
     const [error1, setError1] = useState(null);
     const [loading1, setLoading1] = useState(false);
+    
       
-    // function BuscarPelixAnio(e) {
-    //   setAnio(e.target.value)
-    //   fetch(`http://www.omdbapi.com/?s=${q}&apikey=${API_KEY}&y=${e.target.value}`)
-    //       .then(resp => resp)
-    //       .then(resp => resp.json())
-    //       .then(response => {
-    //           if (response.Response === 'False') {  
-    //               setError(response.Error);
-    //           }
-    //           else {
-    //             //   for (let index = 0; index < response.Search.length; index++) {
-    //             //      peliculas.push(response.Search[index])
-                      
-    //             //   }
-    //             setData(response.Search);
-    //           }
-  
-    //           setLoading(false);
-    //       })
-    //       .catch(({message}) => {
-    //           setError(message);
-    //           setLoading(false);
-    //       })
-    // }
-    
-  
-
-    
-    
-
+   
     
     const peliculas1=[]
     
@@ -295,11 +268,17 @@ function Home() {
             setData(newSortedList)
         // alert("Orden Descendente")
     }
+    const restablecer=()=>{
+        setAnio('')
+        
+
+    }
 
       
     return (
 <>
                 <NavBar searchHandler={setQuery} />
+                
 
                 <div id="wrapper">
 
@@ -307,43 +286,52 @@ function Home() {
                         <div className="container-fluid d-flex flex-column p-0">
                             <a className="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="/">
                                 <div className="sidebar-brand-icon rotate-n-15">
-                                    <i className="fas fa-laugh-wink"></i>
+                                <img src={logo} width="70px" height="70px"/>
                                 </div>
-                                <div className="sidebar-brand-text mx-3">
-                                    <span>Filtros</span>
-                                </div>
+                                
                             </a>
+                            <div className="sidebar-brand-text mx-3 mt-2">
+                                    <span><h5 className="h5  text-white">Filtros</h5></span>
+                            </div>
                             <hr className="sidebar-divider my-0"/>
-                            <form className="sidebar-brand-text mx-3">                           
+                                                     
                                 <div className="navbar-nav text-light">
-                                    <span> ORDENAR TITULOS </span>
-                                </div>
+                                    <h6 className="h6 text-white text-align-center">ORDENAR TITULOS</h6>
+                              
                                 <div key={`inline-radio`} className="navbar-nav text-light">
                                    <span className="nav-item"> 
                                    <Form.Check
                                         onChange={ordAscendente}
                                         inline
-                                        label="Ascendente"
+                                        label="Asc"
                                         name="ordenar"
                                         type="radio"
                                         id={`inline-1`}
-                                    /></span>
+                                         
+
+                                    />
                                     <Form.Check
                                         onChange={ordDescendente}
                                         inline
-                                        label="Descendente"
+                                        label="Desc"
                                         name="ordenar"
                                         type="radio"
                                         id={`inline-2`}
-                                    />                                            
+                                       
+                                        
+                                    />                 
+                                    </span>
+                                    </div>  
+                                                     
                                 </div>
-                            </form>
+                            
                             <hr/>
                             <form  className="sidebar-brand-text mx-3">                           
                                 <div className="navbar-nav text-light">
                                     <span> BUSCAR POR AÑO </span>
                                 </div>                                
                                 <p><select className="form-control" value={anio} onChange={cambiaranio}>
+                                <option>Seleccionar</option>
                                 <option>2021</option>
                                 <option>2020</option>
                                 <option>2019</option>
@@ -407,7 +395,10 @@ function Home() {
                                 <option>1961</option>
                                 <option>1960</option>
                                 </select></p>
-                            </form>                            
+                            </form>     
+                            <div>
+                                    <Button variant="primary" onClick={restablecer}>Restablecer</Button>
+                                </div>                        
                         </div>
                     </nav>
                     <div className="d-flex flex-column" id="content-wrapper">
@@ -418,7 +409,7 @@ function Home() {
                                     <Layout className="layout" >
                                         
                                         {/* //<Navbar navbarLinks={navbarLinks} /> */}
-                                        <Content style={{ padding: '50px 50px' }}>
+                                        <Content style={{ padding: '10px 10px' }}>
                                                 <div className="container justify-content-center d-xl-flex d-flex">
                     
                                                     <Button style={{marginRight:'5px'}} variant="secondary"  size="lg" onClick={anterior} >anterior</Button>

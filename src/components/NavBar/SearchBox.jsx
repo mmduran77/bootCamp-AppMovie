@@ -18,12 +18,14 @@ const SearchBox = ({searchHandler}) => {
     return (
         <Container>
             <Row>
-                <Col span={12} offset={6}>
+                <Col span={15} offset={6}>
+                    
                     <Search
-                        placeholder="Ingrese Pelicula a buscar"
+                        placeholder=  "Ingrese Pelicula"
                         enterButton="Buscar"
                         size="large"
                         onSearch={value => searchHandler(value)}
+                       
                     />
                 </Col>
             </Row>
