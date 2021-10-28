@@ -125,7 +125,7 @@ const MovieDetail = ({ Title, Poster, imdbRating, Rated, Runtime, Genre, Plot })
                     <Tag>{Rated}</Tag> 
                     <Tag>{Runtime}</Tag> 
                     <Tag>{Genre}</Tag>
-                    <Tag>Rating: {imdbRating}</Tag>
+                    <Tag><strong>Rating: {imdbRating}</strong></Tag>
 
 
 
@@ -297,6 +297,7 @@ function Home() {
         setAnio('')
         setAsc(false)
         setdesc(false)
+        setQuery('batman')
 
 
     }
