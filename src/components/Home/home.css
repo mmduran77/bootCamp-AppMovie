@@ -12,3 +12,12 @@
         min-height: 100% !important;
     }
 }
+.imgmodal{
+    width: 100%;
+    height: auto;
+   border-radius: 100px;
+}
+.plotpelicula{
+    font-family: fantasy;
+    font-weight: 200;
+}

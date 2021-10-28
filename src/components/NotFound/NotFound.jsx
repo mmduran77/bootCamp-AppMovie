@@ -2,6 +2,7 @@ import React from "react";
 import "../../assets/css/styles.min.css"
 import "../../assets/bootstrap/css/bootstrap.min.css"
 import "../../assets/css/Contact-Form-Clean.css"
+import imagen from '../../assets/error404.png'
 
 const notFound = () => {
     return (
@@ -48,6 +49,7 @@ const notFound = () => {
                             <div className="text-center mt-5">
                                 <div className="error mx-auto" data-text="404">
                                     <p className="m-0">404</p>
+                                    
                                 </div>
                                 <p className="text-dark mb-5 lead">Pagina No Encontrada</p>
                                 <p className="text-black-50 mb-0"><br/>Parece que encontraste una falla en la Matrix ...<br/></p><a href="/home">← Volver al Inicio</a>

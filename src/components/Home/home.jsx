@@ -67,8 +67,13 @@ const ColCardBox = ({ Title, imdbID, Poster, Type, ShowDetail, DetailRequest, Ac
                             <img
                                 alt={Title}
                                 src={Poster === 'N/A' ? logo : Poster}
+                                className="rounded"
+                                borderRadius='300px'
                             />
+                            
+
                         }
+                        
                         onClick={() => clickHandler()}
                     >
 
@@ -93,34 +98,42 @@ const ColCardBox = ({ Title, imdbID, Poster, Type, ShowDetail, DetailRequest, Ac
 
 const MovieDetail = ({ Title, Poster, imdbRating, Rated, Runtime, Genre, Plot }) => {
     return (
-        <Row >
-            <Col span={11}>
-                <img width="250px"
-                    src={Poster === 'N/A' ? logo : Poster}
-                    alt={Title}
-                />
-            </Col>
-            <Col span={13}>
-                <Row >
-                    <Col span={21}>
-                        <TextTitle level={4}>{Title}</TextTitle></Col>
-                    <Col span={3} style={{ textAlign: 'right' }}>
-                        <p> Rating <TextTitle level={4}><span style={{ color: '#41A8F8' }}>{imdbRating}</span></TextTitle></p>
+        <>
 
-                    </Col>
-                </Row>
-                <Row style={{ marginBottom: '20px' }}>
-                    <Col>
-                        <Tag>{Rated}</Tag>
-                        <Tag>{Runtime}</Tag>
-                        <Tag>{Genre}</Tag>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>{Plot}</Col>
-                </Row>
+<Row  >
+    
+    <Col className="text-center" span={24}><TextTitle level={4} textAlign="right"><u>{Title}</u></TextTitle></Col>
+
+</Row>
+<Row className="modalpelicula" >
+
+            <Col span={11}>
+
+                    <img className="imgmodal"
+
+                    src={ Poster === 'N/A' ? logo : Poster} 
+                    alt={Title} 
+
+                   
+                  
+
+                    />
+
             </Col>
-        </Row>
+            <Col span={13} style={{padding:'10px'}}>
+
+                    <Tag>{Rated}</Tag> 
+                    <Tag>{Runtime}</Tag> 
+                    <Tag>{Genre}</Tag>
+                    <Tag>Rating: {imdbRating}</Tag>
+
+
+
+                    <Col className="plotpelicula" style={{textAlign:'center'},{padding:'5px'}}>{Plot}</Col>
+
+            </Col>
+</Row>
+</>
     )
 }
 
@@ -486,17 +499,21 @@ function Home() {
                                 </Row>
 
                                 <Modal
-                                    title='Detail'
+                                    title='Detalle de la pelicula'
                                     centered
                                     visible={activateModal}
                                     onCancel={() => setActivateModal(false)}
                                     footer={null}
                                     width={800}
+                                    
+                                   
                                 >
+                                    
                                     {detailRequest === false ?
                                         (<MovieDetail {...detail} />) :
                                         (<Loader />)
                                     }
+                                    
                                 </Modal>
                             </Content>
                             <Footer1 />
