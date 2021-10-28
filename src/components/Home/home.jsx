@@ -163,6 +163,9 @@ function Home() {
     const [loading1, setLoading1] = useState(false);
     const [checked, setchecked] = useState(false)
 
+    const [asc,setAsc]=useState(false)
+    const [desc,setdesc]=useState(false)
+
 
 
 
@@ -274,6 +277,8 @@ function Home() {
 
 
     const ordAscendente = () => {
+        setAsc(true)
+        setdesc(false)
         let newSortedList = [...data].sort((a, b) => (a.Title > b.Title ? 1 : a.Title < b.Title ? -1 : 0))
         setData(newSortedList)
         setchecked(true)
@@ -282,12 +287,16 @@ function Home() {
     }
 
     const ordDescendente = () => {
+        setAsc(false)
+        setdesc(true)
         let newSortedList = [...data].sort((a, b) => (a.Title < b.Title ? 1 : a.Title > b.Title ? -1 : 0))
         setData(newSortedList)
         // alert("Orden Descendente")
     }
     const restablecer = () => {
         setAnio('')
+        setAsc(false)
+        setdesc(false)
 
 
     }
@@ -336,6 +345,7 @@ function Home() {
                                                 name="ordenar"
                                                 type="radio"
                                                 id={`inline-1`}
+                                                checked={asc}
 
 
 
@@ -347,6 +357,7 @@ function Home() {
                                                 name="ordenar"
                                                 type="radio"
                                                 id={`inline-2`}
+                                                checked={desc}
 
 
                                             />
