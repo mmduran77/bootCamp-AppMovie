@@ -67,8 +67,13 @@ const ColCardBox = ({ Title, imdbID, Poster, Type, ShowDetail, DetailRequest, Ac
                             <img
                                 alt={Title}
                                 src={Poster === 'N/A' ? logo : Poster}
+                                className="rounded"
+                                borderRadius='300px'
                             />
+                            
+
                         }
+                        
                         onClick={() => clickHandler()}
                     >
 
@@ -95,12 +100,12 @@ const MovieDetail = ({ Title, Poster, imdbRating, Rated, Runtime, Genre, Plot })
     return (
         <>
 
-<Row >
+<Row  >
     
     <Col className="text-center" span={24}><TextTitle level={4} textAlign="right"><u>{Title}</u></TextTitle></Col>
 
 </Row>
-<Row className="modalpelicula">
+<Row className="modalpelicula" >
 
             <Col span={11}>
 
@@ -108,6 +113,9 @@ const MovieDetail = ({ Title, Poster, imdbRating, Rated, Runtime, Genre, Plot })
 
                     src={ Poster === 'N/A' ? logo : Poster} 
                     alt={Title} 
+
+                   
+                  
 
                     />
 
@@ -121,7 +129,7 @@ const MovieDetail = ({ Title, Poster, imdbRating, Rated, Runtime, Genre, Plot })
 
 
 
-                    <Col style={{fontFamily:'fantasy'},{fontWeight:'600'},{textAlign:'center'},{padding:'5px'}}>{Plot}</Col>
+                    <Col className="plotpelicula" style={{textAlign:'center'},{padding:'5px'}}>{Plot}</Col>
 
             </Col>
 </Row>
@@ -491,17 +499,21 @@ function Home() {
                                 </Row>
 
                                 <Modal
-                                    title='Detail'
+                                    title='Detalle de la pelicula'
                                     centered
                                     visible={activateModal}
                                     onCancel={() => setActivateModal(false)}
                                     footer={null}
                                     width={800}
+                                    
+                                   
                                 >
+                                    
                                     {detailRequest === false ?
                                         (<MovieDetail {...detail} />) :
                                         (<Loader />)
                                     }
+                                    
                                 </Modal>
                             </Content>
                             <Footer1 />
