@@ -12,3 +12,7 @@
         min-height: 100% !important;
     }
 }
+.imgmodal{
+    width: 100%;
+    height: auto;
+}
