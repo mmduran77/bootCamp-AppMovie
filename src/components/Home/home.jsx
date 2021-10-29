@@ -125,7 +125,7 @@ const MovieDetail = ({ Title, Poster, imdbRating, Rated, Runtime, Genre, Plot })
                     <Tag>{Rated}</Tag> 
                     <Tag>{Runtime}</Tag> 
                     <Tag>{Genre}</Tag>
-                    <Tag>Rating: {imdbRating}</Tag>
+                    <Tag><strong>Rating: {imdbRating}</strong></Tag>
 
 
 
@@ -162,6 +162,9 @@ function Home() {
     const [error1, setError1] = useState(null);
     const [loading1, setLoading1] = useState(false);
     const [checked, setchecked] = useState(false)
+
+    const [asc,setAsc]=useState(false)
+    const [desc,setdesc]=useState(false)
 
 
 
@@ -274,6 +277,8 @@ function Home() {
 
 
     const ordAscendente = () => {
+        setAsc(true)
+        setdesc(false)
         let newSortedList = [...data].sort((a, b) => (a.Title > b.Title ? 1 : a.Title < b.Title ? -1 : 0))
         setData(newSortedList)
         setchecked(true)
@@ -282,12 +287,17 @@ function Home() {
     }
 
     const ordDescendente = () => {
+        setAsc(false)
+        setdesc(true)
         let newSortedList = [...data].sort((a, b) => (a.Title < b.Title ? 1 : a.Title > b.Title ? -1 : 0))
         setData(newSortedList)
         // alert("Orden Descendente")
     }
     const restablecer = () => {
         setAnio('')
+        setAsc(false)
+        setdesc(false)
+        setQuery('batman')
 
 
     }
@@ -336,6 +346,7 @@ function Home() {
                                                 name="ordenar"
                                                 type="radio"
                                                 id={`inline-1`}
+                                                checked={asc}
 
 
 
@@ -347,6 +358,7 @@ function Home() {
                                                 name="ordenar"
                                                 type="radio"
                                                 id={`inline-2`}
+                                                checked={desc}
 
 
                                             />
